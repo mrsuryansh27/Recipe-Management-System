@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block surya %}
+<h1>This is index page</h1>
+<a href="/contact/">
+    contact
+</a>
+<a href="/about/">
+    about
+</a>
+
+
+<table class="container">
+    <tr>
+      <th>S.no</th>
+      <th>Age</th>
+      <th>number</th>
+      <th>can vote</th>
+    </tr>
+    {% for people in peoples %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{people.name}}</td>
+      <td>{{people.age}}</td>
+      <td>
+        {% if people.age >= 18 %}
+    👍
+{% else %}
+    👎
+{% endif %}
+
+    </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}
